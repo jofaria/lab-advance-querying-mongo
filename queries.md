@@ -6,6 +6,7 @@
 
 ```js
 FILTER: {name: "Babelgum"}
+PROJECT: {name: 1, _id: 0}
 ```
 
 
@@ -14,7 +15,7 @@ FILTER: {name: "Babelgum"}
 
 ```js
 FILTER: {number_of_employees: {$gt: 5000} }
-
+SORT: {number_of_employees: 1}
 LIMIT: 20
 ```
 
@@ -25,7 +26,7 @@ LIMIT: 20
 ```js
 FILTER: { $and: [ { founded_year: {$gte: 2000} }, { founded_year: {$lte: 2005} } ] }
 
-PROJECT: {name: 1, founded_year: 1}
+PROJECT: {name: 1, founded_year: 1, _id: 0}
 ```
 
 
@@ -34,7 +35,7 @@ PROJECT: {name: 1, founded_year: 1}
 
 ```js
 FILTER: { $and: [ { "ipo.valuation_amount": {$gt: 100000000} }, { founded_year: { $lt: 2010 }} ] }
-PROJECT: {name: 1, ipo: 1}
+PROJECT: {name: 1, ipo: 1, _id: 0}
 ```
 
 
@@ -69,7 +70,7 @@ FILTER: {category_code : {$type : "null"}}
 
 ```js
 FILTER: { $and: [ {number_of_employees: {$gt: 100}}, {number_of_employees: {$lt: 1000}}]}
-PROJECT: {name: 1, number_of_employees: 1}
+PROJECT: {name: 1, number_of_employees: 1, _id: 0}
 ```
 
 
@@ -112,7 +113,7 @@ FILTER: { $and: [ { "acquisition.price_amount": {$gt: 10000000} }, { founded_yea
 
 ```js
 FILTER: {"acquisition.acquired_year": {$gt: 2010}}
-PROJECT: {name: 1, acquisition: 1}
+PROJECT: {name: 1, acquisition: 1, _id: 0}
 SORT: {"acquisition.price_amount": 1}
 ```
 
@@ -122,7 +123,7 @@ SORT: {"acquisition.price_amount": 1}
 
 ```js
 FILTER: {founded_year: {$type: "number"}}
-PROJECT: {name: 1, founded_year: 1}
+PROJECT: {name: 1, founded_year: 1, _id: 0}
 SORT: {founded_year: 1}
 ```
 
@@ -158,7 +159,7 @@ FILTER: { $and: [{"acquisition.price_amount": {$gt: 10000000}}, {"acquisition.pr
 
 ```js
 FILTER: {"acquisition.acquired_month": {$lte: 3}}
-PROJECT: {name: 1, acquisition: 1}
+PROJECT: {name: 1, acquisition: 1, _id: 0}
 LIMIT: 10
 ```
 
